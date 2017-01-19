@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Elevator - Multipurpose Bootstrap Theme</title>
+        <title>Perpustakaan SMK Terpadu Al-Ikhwan</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,12 +26,13 @@
         <!-- Custom Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
+        <link rel="shortcut icon" href="images/books.png" type="image/x-icon">
 
         <!-- Template js -->
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/jquery.appear.js"></script>
-        <script src="js/contact_me.js"></script>
+<!--        <script src="js/contact_me.js"></script>-->
         <script src="js/jqBootstrapValidation.js"></script>
         <script src="js/modernizr.custom.js"></script>
         <script src="js/script.js"></script>
@@ -51,8 +52,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="logo text-center">
-                            <h1>elevator</h1>
-                            <span>Your Business Field</span>
+                            <h1>Perpustakaan</h1>
+                            <span>SMK Terpadu Al-Ikhwan</span>
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
                 <div class="row">
                     
                     <div class="col-md-3">
-                        <!--
+                        
                         <div class="menu-item blue">
                             <a href="#feature-modal" data-toggle="modal">
                                 <i class="fa fa-magic"></i>
@@ -88,7 +89,7 @@
                                 <p>About Us</p>
                             </a>
                         </div>
-                        -->
+                        
                     </div>
                     
                     <div class="col-md-6">
@@ -109,7 +110,7 @@
                                         <img src="images/about-03.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="item">
-                                        <img src="images/about-02.jpg" class="img-responsive" alt="">
+                                        <img src="images/about-02.png" class="img-responsive" alt="">
                                     </div>
                                     <div class="item">
                                         <img src="images/about-01.jpg" class="img-responsive" alt="">
@@ -135,7 +136,7 @@
                                 <div class="menu-item light-orange responsive-2">
                                     <a href="#team-modal" data-toggle="modal">
                                         <i class="fa fa-users"></i>
-                                        <p>Pinjam Buku</p>
+                                        <p>Tambah Buku</p>
                                     </a>
                                 </div>
                             </div>
@@ -145,13 +146,13 @@
                     </div>
                     
                     <div class="col-md-3">
+                        
                         <div class="menu-item light-red">
                             <a href="#contact-modal" data-toggle="modal">
                                 <i class="fa fa-envelope-o"></i>
                                 <p>Contact</p>
                             </a>
                         </div>
-                        <!--
                         
                         <div class="menu-item color">
                             <a href="#testimonial-modal" data-toggle="modal">
@@ -166,7 +167,7 @@
                                 <p>Latest News</p>
                             </a>
                         </div>
-                        -->
+                        
                     </div>
                 </div>
             </div>
@@ -596,7 +597,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>DAFTAR BUKU</h3>
+                            <h3>DAFTAR BUKU</h3>&nbsp;                   
                         </div>
                     </div>
                     <div class="row">
@@ -605,26 +606,20 @@
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-magic pull-left"></i>
-                                    <div class="media-body"> <?php echo "hi";?> ho                                       
-                                        <table border="1">
+                                    <div class="media-body">                                        
+                                        <table class="table-hover table table-striped">
                                             <tr>
                                                 <td>No</td>
                                                 <td>Judul Buku</td>
                                                 <td>Pengarang</td>
                                                 <td>Kategori</td>
                                                 <td>Penerbit</td>
-<!--                                                <td>Status</td>-->
+                                                <td>Rak</td>
+                                                <td>Status</td>
+                                                <td>Ket</td>
                                             </tr>
                                             <?php
-                                            $server = "localhost" ;
-                                            $username = "root" ;
-                                            $password = "" ;
-                                            $database = "perpus";
-                                            
-
-                                            mysql_connect($server,$username,$password) or die ("Koneksi database gagal");
-                                            mysql_select_db($database) or die ("Database tidak tersedia");
-                                            
+                                            include 'koneksi.php'; 
                                             $i=0; 
                                             $tampil = "SELECT * FROM buku ORDER BY id DESC";
                                             $sql = mysql_query($tampil);
@@ -636,11 +631,14 @@
 
                                             echo "
                                             <tr>
-                                            <td>'.$i.'</td>
+                                            <td>.$i.</td>
                                             <td>".$data['judul']."</td>
                                             <td>".$data['pengarang']."</td>
                                             <td>".$data['kategori']."</td>
                                             <td>".$data['penerbit']."</td>
+                                            <td>".$data['no_rak']."</td>
+                                            <td>".$data['status']."</td>
+                                            <td><a  href='index.php#edit-modal'>Edit</a><img src='images/more.png'><a href='index.php#delete-modal'>Hapus</a></td>
                                             
                                             </tr>";
                                             }?>
@@ -648,111 +646,12 @@
                                     </div>
                                 </div>
                             </div>
-                        <!-- /.col-md-4 -->
+                        </div><!-- /.col-md-4 -->
                         
                     </div><!-- /.row -->
                 </div>
                 
-                <div class="pricing-section">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Free</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Standard</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Premium</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="pricing-table">
-                                    <div class="plan-name">
-                                        <h3>Professional</h3>
-                                    </div>
-                                    <div class="plan-price">
-                                        <div class="price-value">$49<span>.00</span></div>
-                                        <div class="interval">per month</div>
-                                    </div>
-                                    <div class="plan-list">
-                                        <ul>
-                                            <li>40 GB Storage</li>
-                                            <li>40GB Transfer</li>
-                                            <li>10 Domains</li>
-                                            <li>20 Projects</li>
-                                            <li>Free installation</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan-signup">
-                                        <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 
             </div>
         </div>
@@ -772,149 +671,54 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Our Expert Team</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                            <h3>Tambah Buku</h3>
+                            <p>Masukkan data buku-buku baru</p>
                         </div>
                     </div>
                     <div class="row">
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/manage-1.png" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
+                        <form method="POST" action="tambah.php" novalidate enctype="multipart/formdata">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Judul Buku*" name="judul" required data-validation-required-message="Tuliskan judul buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Pengarang *" name="pengarang" required data-validation-required-message="Tuliskan pengarang buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Kode buku *" name="kode" required data-validation-required-message="Tuliskan kode buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Penerbit *" name="penerbit" required data-validation-required-message="Tuliskan penerbit buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Kategori *" name="kategori" required data-validation-required-message="Tuliskan kategori buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Tahun Terbit *" name="tahun" required data-validation-required-message="Tuliskan tahun terbit buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+<!--                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                            <p class="help-block text-danger"></p>
+                                        </div>-->
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12 text-center">
+                                        <button type="submit" class="btn btn-primary" name="simpan" value="klik">Simpan</button>
+<!--                                        <div id="success"></div>-->
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/manage-2.png" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/manage-3.png" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/manage-4.png" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/team-1.jpg" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/team-2.jpg" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/team-3.jpg" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="team-member">
-                                <img src="images/team/team-4.jpg" class="img-responsive" alt="">
-                                <div class="team-details">
-                                    <h4>John Doe</h4>
-                                    <div class="designation">Senior Web Developer</div>
-                                    <ul style="text-align: center;">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div><!-- /.row -->
+                            </form>
+                    </div>
+                        </div><!-- /.row -->
                 </div>
                 
             </div>
@@ -922,8 +726,8 @@
         <!-- End Team Member Section -->
         
         
-        <!-- Start Latest News Section -->
-        <div class="section-modal modal fade" id="news-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Start Edit Modal Section -->
+        <div class="section-modal modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -935,75 +739,54 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Exclusive News</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                            <h3>Edit Data Buku</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-01.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
+                        <form method="POST" action="edit.php" novalidate enctype="multipart/formdata">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Judul Buku*" name="judul" required data-validation-required-message="Tuliskan judul buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Pengarang *" name="pengarang" required data-validation-required-message="Tuliskan pengarang buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Kode buku *" name="kode" required data-validation-required-message="Tuliskan kode buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Penerbit *" name="penerbit" required data-validation-required-message="Tuliskan penerbit buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Kategori *" name="kategori" required data-validation-required-message="Tuliskan kategori buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Tahun Terbit *" name="tahun" required data-validation-required-message="Tuliskan tahun terbit buku.">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+<!--                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                            <p class="help-block text-danger"></p>
+                                        </div>-->
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12 text-center">
+                                        <button type="submit" class="btn btn-primary" name="simpan" value="klik">Simpan</button>
+<!--                                        <div id="success"></div>-->
+                                    </div>
                                 </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
+                            </form>
                         
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-02.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
                         
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-03.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="latest-post">
-                                <img src="images/blog-04.jpg" class="img-responsive" alt="">
-                                <h4><a href="#">Standard Post with Image</a></h4>
-                                <div class="post-details">
-                                    <ul>
-                                        <li><i class="fa fa-user"></i> Auther : iThemesLab</li>
-                                        <li><i class="fa fa-calendar"></i> 07 Aug, 2014</li>
-                                        <li><i class="fa fa-tag"></i> Music</li>
-                                    </ul>
-                                </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                
-                            </div>
-                        </div>
-                        
+                                                
                     </div>
                 </div>
                 
