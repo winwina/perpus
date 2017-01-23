@@ -231,7 +231,7 @@
                                             <td>" . $data['penerbit'] . "</td>
                                             <td>" . $data['no_rak'] . "</td>
                                             <td>" . $data['status'] . "</td>
-                                            <td><a  href='index.php#edit-modal'>Edit</a><img src='images/more.png'><a href='index.php#delete-modal'>Hapus</a></td>
+                                            <td><a  href='edit-buku.php?id=$data[id]'>Edit</a><img src='images/more.png'><a href='delete.php?id=$data[id]'>Hapus</a></td>
                                             
                                             </tr>";
                                             }
