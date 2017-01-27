@@ -76,7 +76,7 @@
                         </div>
                         <div class="menu-item light-red">
                             <a href="#anggota-modal" data-toggle="modal">
-                                <i class="fa fa-area-chart"></i>
+                                <i class="fa fa-bookmark"></i>
                                 <p>Daftar Peminjam</p>
                             </a>
                         </div>
@@ -103,7 +103,7 @@
                                         <img src="images/about-03.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="item">
-                                        <img src="images/about-02.png" class="img-responsive" alt="">
+                                        <img src="images/about-02.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="item">
                                         <img src="images/about-01.jpg" class="img-responsive" alt="">
@@ -112,34 +112,46 @@
                                 </div>
 
                             </div>
+
                         </div>
                         <!-- Start Carousel Section -->
 
-                        <div class="row">
+<!--                        <div class="row">
                             <div class="col-md-6">
-
+                                <div class="menu-item green">
+                                </div>
                             </div>
 
                             <div class="col-md-6">
+                                <div class="menu-item red">
+                                    <a href="#request-modal" data-toggle="modal">
+                                        <i class="fa fa-dropbox"></i>
+                                        <p>Request Buku</p>
+                                    </a>
+                                </div>
 
                             </div>
 
-                        </div>
+                        </div>-->
 
-                    </div>
+                    </div>  
 
                     <div class="col-md-3">
                         <div class="menu-item light-orange responsive-2">
+                                    <a href="#cari-modal" data-toggle="modal">
+                                        <i class="fa fa-search"></i>
+                                        <p>Cari Buku</p>
+                                    </a>
+                        </div> 
+                        <div class="menu-item blue responsive-2">
                             <a href="#team-modal" data-toggle="modal">
                                 <i class="fa fa-book"></i>
                                 <p>Tambah Buku</p>
                             </a>
-                        </div> 
-                        <div class="menu-item blue responsive-2">
-                            <a href="#tanggota-modal" data-toggle="modal">
+<!--                            <a href="#tanggota-modal" data-toggle="modal">
                                 <i class="fa fa-users"></i>
                                 <p>Tambah Anggota</p>
-                            </a>
+                            </a>-->
                         </div> 
 
 
@@ -249,6 +261,8 @@
 
             </div>
         </div>
+        
+          <!-- Start Daftar Anggota Section -->
         <div class="section-modal modal fade" id="anggota-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -261,7 +275,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>DAFTAR ANGGOTA</h3>&nbsp;                   
+                            <h3>DAFTAR ANGGOTA</h3>&nbsp;
+                            <p><a data-dismiss="modal" data-toggle="modal" href="#tanggota-modal" class="btn blue" role="button">Tambah Anggota</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -315,7 +330,7 @@
         <!-- End Service Section -->
 
 
-        <!-- Start Team Member Section -->
+        <!-- Start Tambah buku Section -->
         <div class="section-modal modal fade" id="team-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -453,7 +468,7 @@
 
 
 
-    <!-- Start Contact Section -->
+    <!-- Start Tambah Anggota Form Section -->
     <div class="section-modal modal fade contact" id="tanggota-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -471,46 +486,45 @@
                     </div>
                 </div>
                 <div class="row">
-                        <form method="POST" action="tambah-anggota.php" novalidate enctype="multipart/formdata">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nama Lengkap *" name="nama" required data-validation-required-message="Tuliskan nama lengkap Anda.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="NIS *" name="nis" required data-validation-required-message="Tuliskan NIS Anda.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Kelas *" name="kelas" required data-validation-required-message="Tuliskan kelas Anda.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
+                    <form method="POST" action="tambah-anggota.php" novalidate enctype="multipart/formdata">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nama Lengkap *" name="nama" required data-validation-required-message="Tuliskan nama lengkap Anda.">
+                                    <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Alamat *" name="alamat" required data-validation-required-message="Tuliskan alamat Anda."></textarea>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="NIS *" name="nis" required data-validation-required-message="Tuliskan NIS Anda.">
+                                    <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="clearfix"></div>
-                                <div class="col-lg-12 text-center">
-                                    <div id="success"></div>
-                                    <button type="submit" name="simpan" value="simpan" class="btn btn-primary">Simpan</button>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Kelas *" name="kelas" required data-validation-required-message="Tuliskan kelas Anda.">
+                                    <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Alamat *" name="alamat" required data-validation-required-message="Tuliskan alamat Anda."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" name="simpan" value="simpan" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
+
     </div>
-    <!-- End Contact Section -->
 
+<!-- End Contact Section -->
 
-    <!-- Start Testimonial Section -->
-    <div class="section-modal modal fade contact" id="testimonial-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Start Cari Buku Form Section -->
+    <div class="section-modal modal fade contact" id="cari-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -521,60 +535,100 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="section-title text-center">
-                        <h3>Client's Speech About Us</h3>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                    <div class="section-title text-center text-warning">
+                        <h3><i class="fa fa-search"></i>&nbsp;Cari Buku</h3>
+                        <p class="text-warning">Perpustakaan SMK Terpadu Al-Ikhwan</p>
                     </div>
                 </div>
                 <div class="row">
-
-                    <div class="col-md-6">
-                        <div class="testimonial">
-                            <img src="images/team/manage-1.png" class="img-responsive" alt="...">
-                            <h4>John Doe</h4>
-                            <div class="speech">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <form method="POST" action="cari-buku.php" novalidate">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4" >
+                                <div class="col-lg-12 text-center">
+                                    <input type="text" class="form-control" placeholder="Judul buku yang dicari *" name="key" required data-validation-required-message="Tuliskan judul buku yang Anda cari.">
+                                    </div>
+                            <div class="clearfix"></div>
+                            <div class="text-center">
+                                <div id="success"></div>
+                                <button type="submit" name="cari" value="cari" class="btn btn-warning">Cari</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="testimonial">
-                            <img src="images/team/manage-2.png" class="img-responsive" alt="...">
-                            <h4>John Doe</h4>
-                            <div class="speech">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="testimonial">
-                            <img src="images/team/manage-3.png" class="img-responsive" alt="...">
-                            <h4>John Doe</h4>
-                            <div class="speech">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="testimonial">
-                            <img src="images/team/manage-4.png" class="img-responsive" alt="...">
-                            <h4>John Doe</h4>
-                            <div class="speech">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div><!--/.row -->
-
+                    </form>
+                </div>
             </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Contact Section -->
+
+
+<!-- Start Testimonial Section -->
+<div class="section-modal modal fade contact" id="testimonial-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="section-title text-center">
+                    <h3>Client's Speech About Us</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <img src="images/team/manage-1.png" class="img-responsive" alt="...">
+                        <h4>John Doe</h4>
+                        <div class="speech">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <img src="images/team/manage-2.png" class="img-responsive" alt="...">
+                        <h4>John Doe</h4>
+                        <div class="speech">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <img src="images/team/manage-3.png" class="img-responsive" alt="...">
+                        <h4>John Doe</h4>
+                        <div class="speech">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <img src="images/team/manage-4.png" class="img-responsive" alt="...">
+                        <h4>John Doe</h4>
+                        <div class="speech">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!--/.row -->
 
         </div>
+
     </div>
-    <!-- End Testimonial Section -->
+</div>
+<!-- End Testimonial Section -->
 
 </body>
 
